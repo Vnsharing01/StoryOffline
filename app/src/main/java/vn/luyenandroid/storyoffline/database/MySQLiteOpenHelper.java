@@ -59,7 +59,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 //                SO_CHUONG + " INTEGER NOT NULL, " +
 //                THE_LOAI + "TEXT NOT NULL, "+
 //                MO_TA + "TEXT )";
-        String sqlTruyen = "create table truyen2(id integer primary key autoincrement, ten text, tacgia text, sochuong integer,theloai text, mota text )";
+        String sqlTruyen = "create table truyen(id integer primary key autoincrement, ten text, tacgia text, sochuong integer,theloai text, mota text )";
         db.execSQL(sqlTruyen);
 
 
