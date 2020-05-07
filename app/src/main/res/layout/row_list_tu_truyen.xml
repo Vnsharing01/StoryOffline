@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/item_list_horizontal_margin"
+    android:layout_marginBottom="@dimen/item_list_horizontal_margin">
+    <LinearLayout
+        android:background="@drawable/border_item_list"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:paddingLeft="@dimen/border_actionbar_horizontal_margin"
+        android:paddingRight="@dimen/border_actionbar_horizontal_margin"
+        android:paddingBottom="@dimen/border_actionbar_horizontal_margin"
+        android:paddingTop="@dimen/border_actionbar_horizontal_margin"
+        android:orientation="horizontal">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_BiaSach"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/test"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/border_actionbar_horizontal_margin"
+            android:orientation="vertical">
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_TenTruyen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textTitleStoryColor"
+                android:textSize="18sp"
+                android:text="Tên Truyện"
+                android:textStyle="bold"
+                android:maxLines="2"
+                android:ellipsize="end"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textInfoStoryColor"
+                    android:text="Tác Giả: "
+                    android:textSize="15sp"/>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_TacGia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textInfoStoryColor"
+                    android:textSize="15sp"
+                    android:text="Tên Tác Giả"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textInfoStoryColor"
+                    android:text="Số Chương: "
+                    android:textSize="15sp"/>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_SoChuong"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textInfoStoryColor"
+                    android:textSize="15sp"
+                    android:text="145"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textInfoStoryColor"
+                    android:text="Thể Loại: "
+                    android:textSize="15sp"/>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_TheLoai"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textInfoStoryColor"
+                    android:textSize="15sp"
+                    android:text="Fantasy"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">StoryOffline</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tim_kiem_truyen">Tìm Kiếm Truyện ......</string>
+    <string name="the_loai">Thể Loại</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="yeu_thich">Yêu Thích</string>
+</resources>

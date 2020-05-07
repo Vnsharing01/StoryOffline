@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".views.TimKiemActivity">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/backgroundTitleColor"
+        android:minHeight="?attr/actionBarSize">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="10"
+            android:orientation="horizontal">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/img_QuayLai"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_back_white" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_timKiem"
+                android:layout_weight="8"
+                android:layout_width="match_parent"
+                android:background="@drawable/shape_border_tim_kiem"
+                android:layout_marginTop="@dimen/border_actionbar_vertical_margin"
+                android:layout_marginBottom="@dimen/border_actionbar_vertical_margin"
+                android:layout_marginRight="@dimen/border_actionbar_horizontal_margin"
+                android:layout_marginLeft="@dimen/border_actionbar_horizontal_margin"
+                android:hint="@string/tim_kiem_truyen"
+                android:textSize="15sp"
+                android:maxLines="1"
+                android:scrollHorizontally="true"
+                android:inputType="text"
+                android:paddingLeft="@dimen/border_actionbar_horizontal_margin"
+                android:paddingRight="@dimen/border_actionbar_horizontal_margin"
+                android:layout_height="match_parent"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/img_timKiem"
+                android:layout_width="40dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_search_white"/>
+        </LinearLayout>
+    </com.google.android.material.appbar.MaterialToolbar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/border_actionbar_horizontal_margin">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_TimKiemTruyen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/row_list_truyen_home"
+            android:paddingLeft="@dimen/border_actionbar_horizontal_margin"
+            android:paddingRight="@dimen/border_actionbar_horizontal_margin"/>
+
+    </LinearLayout>
+
+</LinearLayout>

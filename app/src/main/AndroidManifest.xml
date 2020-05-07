@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="vn.luyenandroid.storyoffline">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/favorite_book"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".views.DanhSachChuongActivity"></activity>
+        <activity android:name=".views.DocTruyenActivity" />
+        <activity
+            android:name=".views.GioiThieuTruyenActivity"
+            android:parentActivityName=".views.MainActivity" />
+        <activity
+            android:name=".views.TruyenTheoTheLoaiActivity"
+            android:parentActivityName=".views.TheLoaiActivity" />
+        <activity
+            android:name=".views.TheLoaiActivity"
+            android:parentActivityName=".views.MainActivity" />
+        <activity android:name=".views.TimKiemActivity" />
+        <activity android:name=".views.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

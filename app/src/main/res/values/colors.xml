@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="backgroundTitleColor">@android:color/holo_purple</color> <!-- #A020F0 -->
+    <color name="textTitleColor">#FFFFFF</color>
+    <color name="borderColor">#FF9900</color>
+    <color name="ratingColor">#FFFF00</color>
+
+    <color name="textTitleStoryColor">#0099CC</color>
+    <color name="textInfoStoryColor">#CC0000</color>
+    <color name="backgroundButtonReading">#00CC66</color>
+
+    <color name="backgroundListViewGridView">#CC99CC</color>
+    <color name="backgroundDanhsach">#CC99FF</color>
+
+
+</resources>

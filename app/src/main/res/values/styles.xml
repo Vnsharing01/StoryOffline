@@ -1,0 +1,26 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/backgroundTitleColor</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+    <!-- custom style tablayout-->
+    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="android:background">@color/backgroundTitleColor</item>
+        <item name="tabTextAppearance">@style/MyCustomTabTextStyle</item>
+        <item name="tabIndicatorColor">@android:color/transparent</item> <!-- SELECTED TAB INDICATOR(thanh gạch dưới tab dc truy cập) COLOR -->
+        <item name="tabSelectedTextColor">@color/ratingColor</item> <!-- SELECTED TAB TEXT COLOR -->
+    </style>
+
+    <!-- custom style của text trong tablayout-->
+    <style name="MyCustomTabTextStyle" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+</resources>

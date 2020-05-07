@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:background="@drawable/border_item_grid_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/border_actionbar_horizontal_margin"
+        android:paddingVertical="@dimen/border_actionbar_horizontal_margin"
+        android:orientation="vertical">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtv_TheLoai"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Tiên hiệp"
+            android:textColor="@color/textTitleColor"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:paddingVertical="@dimen/border_actionbar_vertical_margin"
+            android:paddingHorizontal="@dimen/border_actionbar_horizontal_margin"/>
+    </LinearLayout>
+
+</LinearLayout>

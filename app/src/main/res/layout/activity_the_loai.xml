@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.TheLoaiActivity">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/backgroundTitleColor"
+        app:titleTextColor="@color/textTitleColor"
+        android:elevation="3dp">
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/border_actionbar_horizontal_margin"
+        android:background="@color/backgroundListViewGridView"
+        android:orientation="vertical">
+
+        <GridView
+            android:id="@+id/gv_TheLoai"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/activity_horizontal_margin"
+            android:paddingVertical="@dimen/border_actionbar_horizontal_margin"
+            android:stretchMode="columnWidth"
+            android:horizontalSpacing="@dimen/border_horizontal_margin"
+            android:columnWidth="10dp"
+            android:numColumns="2"
+            android:verticalSpacing="@dimen/border_vertical_margin"
+            tools:listitem="@layout/row_list_the_loai" />
+
+    </LinearLayout>
+
+</LinearLayout>
