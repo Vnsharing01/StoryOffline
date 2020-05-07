@@ -48,6 +48,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         onCreateTruyenTable(sqLiteDatabase);
         onCreateTheLoaiTable(sqLiteDatabase);
 
+        initDataTheLoai(sqLiteDatabase);
         initDataTruyen(sqLiteDatabase);
     }
 
@@ -89,6 +90,20 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
     public void deleteTheLoaiTable(SQLiteDatabase db){
         db.execSQL(" DROP TABLE IF EXISTS " + TABLE_THELOAI);
+    }
+
+    public void initDataTheLoai(SQLiteDatabase db){
+        String[] theLoais = new String[]{
+                "The loai 01",
+                "The loai 02",
+                "The loai 03"
+        };
+
+        for (String theLoai:
+             theLoais) {
+            db.execSQL("Insert into theLoai VALUES('"+theLoai+"')");
+
+        }
     }
 
     public void initDataTruyen(SQLiteDatabase db){
