@@ -17,6 +17,7 @@ import java.util.List;
 
 import vn.luyenandroid.storyoffline.R;
 import vn.luyenandroid.storyoffline.adapter.TimKiemAdapter;
+import vn.luyenandroid.storyoffline.database.MySQLiteOpenHelper;
 import vn.luyenandroid.storyoffline.models.Truyen;
 
 public class TimKiemActivity extends AppCompatActivity {
@@ -27,13 +28,16 @@ public class TimKiemActivity extends AppCompatActivity {
     private RecyclerView rvKQTimKiem;
     TimKiemAdapter mAdapter;
     MaterialToolbar mToolBar;
+
+    MySQLiteOpenHelper db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tim_kiem);
         setToolBar();
         setWidget();
-        setRvKQTimKiem();
+//        setRvKQTimKiem();
+        db = new MySQLiteOpenHelper(this);
     }
 
     private void setToolBar(){
@@ -49,9 +53,10 @@ public class TimKiemActivity extends AppCompatActivity {
         rvKQTimKiem = findViewById(R.id.rv_TimKiemTruyen);
 
         simgBack.setOnClickListener(click);
+        simgTimKiem.setOnClickListener(click);
     }
-    private void setRvKQTimKiem(){
-        mTruyens = new ArrayList<>();
+    private void setRvKQTimKiem(String tenTruyen){
+        mTruyens = db.selectDataTenTruyen(tenTruyen);
         mAdapter = new TimKiemAdapter(this,mTruyens);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
@@ -70,6 +75,7 @@ public class TimKiemActivity extends AppCompatActivity {
                     String timKiem = String.valueOf(tiedtTimKiem.getText());
                     // kiểm tra trong db có cái dữ liệu đó không ?
                     // add vào list hiển thị .
+                    setRvKQTimKiem(timKiem);
                     break;
             }
         }

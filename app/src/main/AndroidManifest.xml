@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.DanhSachChuongActivity"></activity>
+        <activity android:name=".views.ThongTinUngDungActivity"
+            android:parentActivityName=".views.MainActivity"/>
+        <activity android:name=".views.DanhSachChuongActivity"/>
         <activity android:name=".views.DocTruyenActivity" />
         <activity
             android:name=".views.GioiThieuTruyenActivity"

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/border_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_TenChuong"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:maxLines="3"
+                android:gravity="center"
+                android:fontFamily="sans-serif-light"
+                android:textSize="25sp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="italic|bold"
+                android:text=" Chương 1: \n Xuyên qua thế giới mới "/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_NoiDungChuong"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/border_vertical_margin"
+                android:text="Nội Dung chương 1"
+                android:textColor="@android:color/black"
+                android:textStyle="normal"
+                android:textSize="15sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

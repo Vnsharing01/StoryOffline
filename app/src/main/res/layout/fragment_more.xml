@@ -49,12 +49,13 @@
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     app:srcCompat="@drawable/icon_version"/>
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_Version"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:text="Version"
                     android:textColor="@color/textTitleColor"
                     android:textSize="18sp"
-                    android:layout_gravity="center_vertical"/>
+                    android:gravity="center_vertical"/>
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
@@ -75,12 +76,13 @@
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     app:srcCompat="@drawable/info"/>
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_info"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:textColor="@color/textTitleColor"
                     android:text="Thông tin ứng dụng"
                     android:textSize="18sp"
-                    android:layout_gravity="center_vertical"/>
+                    android:gravity="center_vertical"/>
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
@@ -100,13 +102,15 @@
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     app:srcCompat="@drawable/question_icon"/>
+
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_support"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/textTitleColor"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
                     android:text="Góp ý , báo lỗi"
-                    android:textSize="18sp"
-                    android:layout_gravity="center_vertical"/>
+                    android:textColor="@color/textTitleColor"
+                    android:textSize="18sp" />
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
@@ -128,9 +132,10 @@
                     app:srcCompat="@drawable/star_rating"/>
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_rate"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
                     android:text="Đánh giá ứng dụng"
                     android:textColor="@color/textTitleColor"
                     android:textSize="18sp" />

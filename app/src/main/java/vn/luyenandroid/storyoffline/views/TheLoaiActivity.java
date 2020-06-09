@@ -21,8 +21,7 @@ import java.util.List;
 import vn.luyenandroid.storyoffline.R;
 import vn.luyenandroid.storyoffline.adapter.TheLoaiAdapter;
 import vn.luyenandroid.storyoffline.database.MySQLiteOpenHelper;
-//import vn.luyenandroid.storyoffline.database.QLTheLoai;
-//import vn.luyenandroid.storyoffline.database.QLTruyen;
+
 import vn.luyenandroid.storyoffline.models.TheLoai;
 
 public class TheLoaiActivity extends AppCompatActivity{
@@ -31,16 +30,14 @@ public class TheLoaiActivity extends AppCompatActivity{
     GridView grvTheLoai;
     List<TheLoai> mTheLoaiList;
     TheLoaiAdapter mAdapter;
-    SQLiteOpenHelper sqLiteOpenHelper;
-    //QLTruyen db = new QLTruyen(this);
+    MySQLiteOpenHelper db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_the_loai);
         setToolBar();
-
-
-
+        db = new MySQLiteOpenHelper(this);
         grvTheLoai = findViewById(R.id.gv_TheLoai);
         setGridView();
     }
@@ -55,8 +52,8 @@ public class TheLoaiActivity extends AppCompatActivity{
     }
 
     private void setGridView(){
-/*        db.addTheLoai();
-        mTheLoaiList = db.getTheLoai();
+        mTheLoaiList = db.selectDataTheLoai();
+
         mAdapter = new TheLoaiAdapter(mTheLoaiList, R.layout.row_list_the_loai, this);
         grvTheLoai.setAdapter(mAdapter);
 
@@ -69,7 +66,7 @@ public class TheLoaiActivity extends AppCompatActivity{
                 startActivity(mIntent);
             }
         });
-        //*/
+
 
     }
 

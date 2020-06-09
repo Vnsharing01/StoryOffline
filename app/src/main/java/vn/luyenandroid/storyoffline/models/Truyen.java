@@ -13,6 +13,10 @@ public class Truyen implements Serializable {
     public Truyen() {
     }
 
+    public Truyen(String mTen) {
+        this.mTen = mTen;
+    }
+
     public Truyen(String mTen, String mTacGia) {
         this.mTen = mTen;
         this.mTacGia = mTacGia;

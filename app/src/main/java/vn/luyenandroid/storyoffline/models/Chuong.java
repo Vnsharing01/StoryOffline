@@ -11,8 +11,25 @@ public class Chuong implements Serializable {
     public Chuong() {
     }
 
+    public Chuong(int mID, String mTenTruyen) {
+        this.mID = mID;
+        this.mTenTruyen = mTenTruyen;
+    }
+
+    public Chuong(String mTenTruyen, String mTenChuong) {
+        this.mTenTruyen = mTenTruyen;
+        this.mTenChuong = mTenChuong;
+    }
+
+
     public Chuong(int mID, String mTenChuong, String mNoiDung) {
         this.mID = mID;
+        this.mTenChuong = mTenChuong;
+        this.mNoiDung = mNoiDung;
+    }
+
+    public Chuong( String mTenTruyen, String mTenChuong, String mNoiDung) {
+        this.mTenTruyen = mTenTruyen;
         this.mTenChuong = mTenChuong;
         this.mNoiDung = mNoiDung;
     }

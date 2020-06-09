@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
         mTabLayout.setupWithViewPager(mViewPager);
         setIcon();
 
-        MySQLiteOpenHelper db = new MySQLiteOpenHelper(this);
-        SQLiteDatabase sqLiteDatabase = db.getWritableDatabase();
+//        MySQLiteOpenHelper db = new MySQLiteOpenHelper(this);
+//        SQLiteDatabase sqLiteDatabase = db.getWritableDatabase();
     }
 
     private void setmToolBar(){

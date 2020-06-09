@@ -14,11 +14,29 @@
         android:background="@color/backgroundTitleColor"
         app:titleTextColor="@color/textTitleColor"
         android:elevation="3dp">
+        <ImageButton
+            android:id="@+id/imgbtn_back"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_back_white"
+            android:background="@color/backgroundTitleColor"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_DanhSachChuong"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/border_actionbar_horizontal_margin"
+            android:textSize="20sp"
+            android:textColor="@color/textTitleColor"
+            android:textStyle="bold"
+            android:text="@string/chapter_list"
+            android:gravity="center_vertical"/>
 
     </com.google.android.material.appbar.MaterialToolbar>
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lv_DSChuong"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/row_list_chuong"/>
 
 </LinearLayout>

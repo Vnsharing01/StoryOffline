@@ -18,6 +18,7 @@ import java.util.List;
 
 import vn.luyenandroid.storyoffline.R;
 import vn.luyenandroid.storyoffline.adapter.TuTruyenAdapter;
+import vn.luyenandroid.storyoffline.database.MySQLiteOpenHelper;
 import vn.luyenandroid.storyoffline.models.Truyen;
 
 
@@ -26,6 +27,7 @@ public class  TuTruyenFragment extends Fragment {
     RecyclerView rvTuTruyen;
     List<Truyen> mTruyenList;
     TuTruyenAdapter mAdapter;
+    MySQLiteOpenHelper db;
 
     public TuTruyenFragment() {
         // Required empty public constructor
@@ -50,13 +52,16 @@ public class  TuTruyenFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mTruyenList = new ArrayList<>();
+        db = new MySQLiteOpenHelper(getContext());
+        mTruyenList = db.selectDatatuTruyen();
         rvTuTruyen = getView().findViewById(R.id.rv_TuTruyen);
-        createData();
+//        createData();
         mAdapter = new TuTruyenAdapter(mTruyenList,getContext());
+        mAdapter.notifyDataSetChanged();
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         rvTuTruyen.setAdapter(mAdapter);
         rvTuTruyen.setLayoutManager(layoutManager);
+        mAdapter.notifyDataSetChanged();
 
         /**
          * todo: 1 recyclerView cần phải có 1 adapter và 1 layout magager để được khởi tạo .
@@ -67,17 +72,5 @@ public class  TuTruyenFragment extends Fragment {
          *    -StaggeredGridLayoutManager : dạng lưới so le nhau;
          */
 
-    }
-
-    private void createData(){
-        Truyen mTruyen1 = new Truyen("Long Tinh Truyền Thuyết","Hoả Vân",450,"Fantasy, Hài Hước");
-        Truyen mTruyen2 = new Truyen("Cổ Học Tinh Hoa","Tử An",350,"Ngụ Ngôn");
-        Truyen mTruyen3 = new Truyen("Kị Sĩ Rồng","Edge",150,"Fantasy, Võ Thuật");
-        Truyen mTruyen5 = new Truyen("Gió và Trăng","Hoàng Lan",250,"Tình Cảm");
-
-        mTruyenList.add(mTruyen1);
-        mTruyenList.add(mTruyen2);
-        mTruyenList.add(mTruyen3);
-        mTruyenList.add(mTruyen5);
     }
 }

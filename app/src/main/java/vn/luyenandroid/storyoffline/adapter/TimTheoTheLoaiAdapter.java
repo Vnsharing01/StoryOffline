@@ -2,6 +2,7 @@ package vn.luyenandroid.storyoffline.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,10 +50,15 @@ public class TimTheoTheLoaiAdapter extends RecyclerView.Adapter<TimTheoTheLoaiAd
             @Override
             public void onClick(View view) {
                 Intent mIntent = new Intent(mContext , GioiThieuTruyenActivity.class);
-                mIntent.putExtra("name",holder.mtvTenTruyen.getText());
-                mIntent.putExtra("author",holder.mtvTacGia.getText());
-                mIntent.putExtra("soChuong",holder.mtvSoChuong.getText());
-                mIntent.putExtra("theLoai",holder.mtvTheLoai.getText());
+                Bundle bundle = new Bundle();
+                Truyen truyen = new Truyen();
+
+                truyen.setmTen(holder.mtvTenTruyen.getText().toString());
+                truyen.setmTacGia(holder.mtvTacGia.getText().toString());
+                truyen.setmSoChuong(Integer.parseInt(holder.mtvSoChuong.getText().toString()));
+                truyen.setmTheLoai(holder.mtvTheLoai.getText().toString());
+                bundle.putSerializable("truyen",truyen);
+                mIntent.putExtra("data",bundle);
                 mContext.startActivity(mIntent);
             }
         });

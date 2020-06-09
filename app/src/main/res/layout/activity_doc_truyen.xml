@@ -14,16 +14,32 @@
         android:background="@color/backgroundTitleColor"
         app:titleTextColor="@color/textTitleColor"
         android:elevation="3dp">
+        <ImageButton
+            android:id="@+id/imgbtn_back"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_back_white"
+            android:background="@color/backgroundTitleColor" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_TenTruyen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/border_actionbar_horizontal_margin"
+            android:textColor="@color/textTitleColor"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="Tên Truyện"
+            android:gravity="center_vertical"/>
 
     </com.google.android.material.appbar.MaterialToolbar>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_DocTruyen"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/nen_truyen"
             android:padding="@dimen/border_vertical_margin"/>
-    </ScrollView>
+
 
 </LinearLayout>

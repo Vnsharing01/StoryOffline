@@ -2,6 +2,7 @@ package vn.luyenandroid.storyoffline.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,10 +53,15 @@ public class TuTruyenAdapter extends RecyclerView.Adapter<TuTruyenAdapter.ViewHo
              @Override
              public void onClick(View v) {
                  Intent Info = new Intent(v.getContext(), GioiThieuTruyenActivity.class);
-                 Info.putExtra("name",holder.mtvTenTruyen.getText());
-                 Info.putExtra("author",holder.mtvTacGia.getText());
-                 Info.putExtra("soChuong",holder.mtvSoChuong.getText());
-                 Info.putExtra("theLoai",holder.mtvTheLoai.getText());
+                 Bundle bundle = new Bundle();
+                 Truyen mTruyen = new Truyen();
+
+                 mTruyen.setmTen(holder.mtvTenTruyen.getText().toString());
+                 mTruyen.setmTacGia(holder.mtvTacGia.getText().toString());
+                 mTruyen.setmSoChuong(Integer.valueOf(String.valueOf(holder.mtvSoChuong.getText())));
+                 mTruyen.setmTheLoai(holder.mtvTheLoai.getText().toString());
+                 bundle.putSerializable("truyen", mTruyen);
+                 Info.putExtra("data" , bundle);
                  mContext.startActivity(Info);
              }
          });

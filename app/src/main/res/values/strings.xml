@@ -7,4 +7,15 @@
     <string name="the_loai">Thể Loại</string>
     <string name="title_activity_settings">Settings</string>
     <string name="yeu_thich">Yêu Thích</string>
+
+    <!-- -->
+    <string name="info">
+        Ứng dụng Read Ofilne bao gồm các truyện cổ tích , sách báo triết học và các truyện được cộng động dịch giả chia sẻ online.
+        Các trạng thái truyện được phân loại thành đã hoàn thành , đang dịch,...
+
+        Cảm ơn các bạn đã đồng hành cùng ứng dụng!
+
+        Chúng tôi rất vui vì các bạn đã tin tưởng và sử dụng ứng dụng trong thời gian qua.
+    </string>
+    <string name="chapter_list">Danh Sách Chương</string>
 </resources>

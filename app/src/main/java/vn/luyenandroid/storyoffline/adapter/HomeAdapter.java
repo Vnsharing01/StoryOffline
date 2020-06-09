@@ -2,6 +2,7 @@ package vn.luyenandroid.storyoffline.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,10 +56,16 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
                 // truyền dữ liệu và mở activity GioiThieuTruyen
                 Intent mIntent = new Intent(mContext,GioiThieuTruyenActivity.class);
-                mIntent.putExtra("name",holder.tvTenTruyen.getText());
-                mIntent.putExtra("author",holder.tvTacGia.getText());
-                mIntent.putExtra("soChuong",holder.tvSoChuong.getText());
-                mIntent.putExtra("theLoai",holder.tvTheLoai.getText());
+                Bundle bundle = new Bundle();
+                Truyen mTruyen = new Truyen();
+
+                mTruyen.setmTen(holder.tvTenTruyen.getText().toString());
+                mTruyen.setmTacGia(holder.tvTacGia.getText().toString());
+                mTruyen.setmSoChuong(Integer.valueOf(String.valueOf(holder.tvSoChuong.getText())));
+                mTruyen.setmTheLoai(holder.tvTheLoai.getText().toString());
+
+                bundle.putSerializable("truyen", mTruyen);
+                mIntent.putExtra("data" , bundle);
                 mContext.startActivity(mIntent);
             }
         });

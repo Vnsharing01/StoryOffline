@@ -54,6 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@drawable/nen_truyen"
         android:padding="@dimen/border_actionbar_horizontal_margin">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_TimKiemTruyen"

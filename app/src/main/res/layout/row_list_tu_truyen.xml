@@ -88,7 +88,9 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/textInfoStoryColor"
                     android:textSize="15sp"
-                    android:text="Fantasy"/>
+                    android:text="Fantasy"
+                    android:maxLines="1"
+                    android:ellipsize="end"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
