@@ -56,7 +56,7 @@ public class TimKiemActivity extends AppCompatActivity {
         simgTimKiem.setOnClickListener(click);
     }
     private void setRvKQTimKiem(String tenTruyen){
-        mTruyens = db.selectDataTenTruyen(tenTruyen);
+        mTruyens = db.selectDataTimKiem(tenTruyen);
         mAdapter = new TimKiemAdapter(this,mTruyens);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 

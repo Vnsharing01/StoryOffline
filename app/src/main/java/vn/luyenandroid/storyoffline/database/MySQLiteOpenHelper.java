@@ -114,13 +114,6 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void deleteTruyenTable(SQLiteDatabase db) {
-        db.execSQL(" DROP TABLE IF EXISTS " + TABLE_TRUYEN);
-    }
-
-    public void deleteTheLoaiTable(SQLiteDatabase db) {
-        db.execSQL(" DROP TABLE IF EXISTS " + TABLE_THELOAI);
-    }
 
     /**
      * -- << insert into >>  thêm dữ liệu vào các bảng trong database--
@@ -318,7 +311,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
     }
 
     // hiển thị truyện trong tủ truyện có tên giống với thông tin tìm kiếm
-    public List<Truyen> selectDataTenTruyen(String truyen) {
+    public List<Truyen> selectDataTimKiem(String truyen) {
         List<Truyen> truyenList = new ArrayList<>();
         SQLiteDatabase db = getWritableDatabase();
 
@@ -341,7 +334,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         return truyenList;
     }
 
-    // hiển thị thông tin chi tiết truyện trong tủ truyện ra activity Giới thiệu
+    // kiểm tra sự tồn tại của truyện trong tủ truyện
     public boolean selectTruyenTrongTuTruyen(String truyen) {
         boolean check;
         SQLiteDatabase db = getWritableDatabase();
@@ -363,7 +356,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         return check;
     }
 
-    // hiển thị tên trương theo danh sách
+    // hiển thị tên chương theo danh sách
     public List<Chuong> selectIDChuong(String truyen) {
         List<Chuong> chuongList = new ArrayList<>();
         SQLiteDatabase db = getWritableDatabase();
@@ -384,12 +377,12 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         return chuongList;
     }
 
-    // hiển thị thông tin nội dung truyện
+    // hiển thị thông tin nội dung truyện theo chương
     public List<Chuong> selectNDChuong(String tenChuong, String tenTruyen){
         List<Chuong> chuongList = new ArrayList<>();
         SQLiteDatabase db = getWritableDatabase();
         String sqlChuong =
-                " SELECT " + ID_CHUONG + "," + TEN_CHUONG + "," + NOI_DUNG +
+                " SELECT " + TEN_CHUONG + "," + NOI_DUNG +
                 " FROM " + TABLE_SD_CHUONG +
                 " WHERE " + TEN_CHUONG + " LIKE '%" + tenChuong + "%' " +
                 " AND " +MA_TRUYEN + "= '" + tenTruyen + "' " +
@@ -398,10 +391,9 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(sqlChuong, null);
         if (cursor.moveToFirst()) {
             do {
-                int ID = cursor.getInt(0);
-                String ten = cursor.getString(1);
-                String ND = cursor.getString(2);
-                Chuong chuong = new Chuong(ID,ten, ND);
+                String ten = cursor.getString(0);
+                String ND = cursor.getString(1);
+                Chuong chuong = new Chuong(ten, ND);
                 chuongList.add(chuong);
             } while (cursor.moveToNext());
         }
@@ -419,6 +411,18 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 //        db.rawQuery(sqlQuery,null);
         db.delete(TABLE_TU_TRUYEN, TEN_TRUYEN + " =? ", new String[]{tenTruyen});
         db.close();
+    }
+
+
+    /**
+     * -- << delete >> xoá bỏ bảng dữ liệu trong db --
+     */
+    public void deleteTruyenTable(SQLiteDatabase db) {
+        db.execSQL(" DROP TABLE IF EXISTS " + TABLE_TRUYEN);
+    }
+
+    public void deleteTheLoaiTable(SQLiteDatabase db) {
+        db.execSQL(" DROP TABLE IF EXISTS " + TABLE_THELOAI);
     }
 
 }
