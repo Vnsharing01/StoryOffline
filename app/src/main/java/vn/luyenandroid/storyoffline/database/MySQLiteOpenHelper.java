@@ -42,7 +42,8 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
     // bảng danh sách chương
     public static final String ID_CHUONG = "ID";
-    public static final String MA_TRUYEN = "MaTruyen";
+    public static final String TENTRUYEN = "TenTruyen";
+    public static final String STT = "STT";
     public static final String TEN_CHUONG = "TenChuong";
     public static final String NOI_DUNG = "NoiDung";
 
@@ -70,7 +71,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
      * -- << create >>  khởi tạo bảng trong database--
      */
     public void onCreateTruyenTable(SQLiteDatabase db) {
-//        String sqlTruyen = "create table truyen(id integer primary key autoincrement, ten text, tacgia text, sochuong integer,theloai text, mota text )";
+
         String sqlTruyen = "CREATE TABLE " + TABLE_TRUYEN + " (" +
                 ID + " INTEGER PRIMARY KEY AUTOINCREMENT , " +
                 TEN_TRUYEN + " TEXT NOT NULL, " +
@@ -94,7 +95,8 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
     public void onCreateDSChuongTable(SQLiteDatabase db) {
         String sqlDSChuong = "CREATE TABLE " + TABLE_SD_CHUONG + " (" +
                 ID_CHUONG + " INTEGER PRIMARY KEY AUTOINCREMENT , " +
-                MA_TRUYEN + " INTEGER NOT NULL, " +
+                TENTRUYEN + " TEXT NOT NULL, " +
+                STT + " INTEGER NOT NULL, " +
                 TEN_CHUONG + " TEXT NOT NULL," +
                 NOI_DUNG + " TEXT NOT NULL)";
         db.execSQL(sqlDSChuong);
@@ -209,8 +211,9 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
 
         for (int i = 1; i <= 50; i++) {
-            String sqlInsert = "INSERT INTO " + TABLE_SD_CHUONG + "(" + MA_TRUYEN + "," + TEN_CHUONG + "," + NOI_DUNG +
-                    ") VALUES( '" + truyen + "', '  Chương " + i + "'" + ", ' Nội Dung Của Chương " + i + "')";
+            String sqlInsert =
+                    "INSERT INTO " + TABLE_SD_CHUONG + "(" + TENTRUYEN + "," + STT + "," + TEN_CHUONG + "," + NOI_DUNG +
+                    ") VALUES( '" + truyen + "' ," + i + ", '  Chương " + i + "'" + ", ' Nội Dung Của Chương " + i + "')";
             db.execSQL(sqlInsert);
         }
         db.close();
@@ -360,10 +363,10 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
     public List<Chuong> selectIDChuong(String truyen) {
         List<Chuong> chuongList = new ArrayList<>();
         SQLiteDatabase db = getWritableDatabase();
-        String sqlChuong = " SELECT " + MA_TRUYEN + "," + TEN_CHUONG +
+        String sqlChuong = " SELECT " + TENTRUYEN + "," + TEN_CHUONG +
                 " FROM " + TABLE_SD_CHUONG +
-                " WHERE " + MA_TRUYEN + " = '" + truyen + "'" +
-                " ORDER BY " + ID_CHUONG + " ASC ";
+                " WHERE " + TENTRUYEN + " = '" + truyen + "'" +
+                " ORDER BY " + STT + " ASC ";
         Cursor cursor = db.rawQuery(sqlChuong, null);
         if (cursor.moveToFirst()) {
             do {
@@ -378,22 +381,22 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
     }
 
     // hiển thị thông tin nội dung truyện theo chương
-    public List<Chuong> selectNDChuong(String tenChuong, String tenTruyen){
+    public List<Chuong> selectNDChuong(String tenTruyen){
         List<Chuong> chuongList = new ArrayList<>();
         SQLiteDatabase db = getWritableDatabase();
         String sqlChuong =
-                " SELECT " + TEN_CHUONG + "," + NOI_DUNG +
+                " SELECT " + STT + "," + TEN_CHUONG + "," + NOI_DUNG +
                 " FROM " + TABLE_SD_CHUONG +
-                " WHERE " + TEN_CHUONG + " LIKE '%" + tenChuong + "%' " +
-                " AND " +MA_TRUYEN + "= '" + tenTruyen + "' " +
-                " ORDER BY " + ID_CHUONG + " ASC ";
+                " WHERE "+TENTRUYEN + "= '" + tenTruyen + "' " +
+                " ORDER BY " + STT + " ASC ";
 
         Cursor cursor = db.rawQuery(sqlChuong, null);
         if (cursor.moveToFirst()) {
             do {
-                String ten = cursor.getString(0);
-                String ND = cursor.getString(1);
-                Chuong chuong = new Chuong(ten, ND);
+                int stt = cursor.getInt(0);
+                String ten = cursor.getString(1);
+                String ND = cursor.getString(2);
+                Chuong chuong = new Chuong(stt, ten, ND);
                 chuongList.add(chuong);
             } while (cursor.moveToNext());
         }

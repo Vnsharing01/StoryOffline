@@ -1,6 +1,7 @@
 package vn.luyenandroid.storyoffline.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,7 @@ public class NoiDungChuongAdapter extends RecyclerView.Adapter<NoiDungChuongAdap
     public int getItemCount() {
         return mChuongList.size();
     }
+
 
     class ViewHolder extends RecyclerView.ViewHolder{
         View mItemView;

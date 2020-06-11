@@ -71,14 +71,14 @@ public class DocTruyenActivity extends AppCompatActivity {
 
     private void setLvNDTruyen() {
         Chuong chuong = getIntentDocTruyen();
-
-        mChuongList = db.selectNDChuong(chuong.getmTenChuong(), chuong.getmTenTruyen());
+        int position = chuong.getmSTT();
+        mChuongList = db.selectNDChuong(chuong.getmTenTruyen());
         adapter = new NoiDungChuongAdapter(this, mChuongList);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        layoutManager.scrollToPosition(position-1);
         SnapHelper snapHelper = new LinearSnapHelper();
         snapHelper.attachToRecyclerView(lvNDTruyen);
-        layoutManager.scrollToPosition(0);
         lvNDTruyen.setAdapter(adapter);
         lvNDTruyen.setLayoutManager(layoutManager);
     }

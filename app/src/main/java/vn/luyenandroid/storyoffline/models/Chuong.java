@@ -5,14 +5,15 @@ import java.io.Serializable;
 public class Chuong implements Serializable {
     private int mID;
     private String mTenTruyen;
+    private int mSTT;
     private String mTenChuong;
     private String mNoiDung;
 
     public Chuong() {
     }
 
-    public Chuong(int mID, String mTenTruyen) {
-        this.mID = mID;
+    public Chuong(int mSTT, String mTenTruyen) {
+        this.mSTT = mSTT;
         this.mTenTruyen = mTenTruyen;
     }
 
@@ -21,22 +22,8 @@ public class Chuong implements Serializable {
         this.mTenChuong = mTenChuong;
     }
 
-
-    public Chuong(int mID, String mTenChuong, String mNoiDung) {
-        this.mID = mID;
-        this.mTenChuong = mTenChuong;
-        this.mNoiDung = mNoiDung;
-    }
-
-    public Chuong( String mTenTruyen, String mTenChuong, String mNoiDung) {
-        this.mTenTruyen = mTenTruyen;
-        this.mTenChuong = mTenChuong;
-        this.mNoiDung = mNoiDung;
-    }
-
-    public Chuong(int mID, String mTenTruyen, String mTenChuong, String mNoiDung) {
-        this.mID = mID;
-        this.mTenTruyen = mTenTruyen;
+    public Chuong(int mSTT, String mTenChuong, String mNoiDung) {
+        this.mSTT = mSTT;
         this.mTenChuong = mTenChuong;
         this.mNoiDung = mNoiDung;
     }
@@ -55,6 +42,14 @@ public class Chuong implements Serializable {
 
     public void setmTenTruyen(String mTenTruyen) {
         this.mTenTruyen = mTenTruyen;
+    }
+
+    public int getmSTT() {
+        return mSTT;
+    }
+
+    public void setmSTT(int mSTT) {
+        this.mSTT = mSTT;
     }
 
     public String getmTenChuong() {

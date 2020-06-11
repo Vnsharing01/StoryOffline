@@ -97,12 +97,13 @@ public class GioiThieuTruyenActivity extends AppCompatActivity {
                     truyen = getData();
                     boolean checkTruyen = db.selectTruyenTrongTuTruyen(mtvTenTruyen.getText().toString());
                     if (checkTruyen == false) {
-
+                        // không có trong tủ truyện
                         imgYeuThich.setImageResource(R.drawable.liked);
                         db.insertDataTuTruyen(truyen);
 
                         Toast.makeText(GioiThieuTruyenActivity.this, "Đã Thêm vào tủ truyện", Toast.LENGTH_SHORT).show();
                     } else {
+                        // đã tồn tại trong tủ truyện
                         imgYeuThich.setImageResource(R.drawable.icon_like_white);
                         db.delTruyen(truyen.getmTen());
 
@@ -115,7 +116,7 @@ public class GioiThieuTruyenActivity extends AppCompatActivity {
                     // gửi dữ liệu kết nối với thông tin table chương để lấy chương truyện
                     Bundle bundle = new Bundle();
                     Chuong chuong = new Chuong();
-                    chuong.setmTenChuong("Chương ");
+                    chuong.setmSTT(1);
                     chuong.setmTenTruyen(truyen.getmTen());// lol
 
                     bundle.putSerializable(TAG_NOIDUNG, chuong);
@@ -140,9 +141,12 @@ public class GioiThieuTruyenActivity extends AppCompatActivity {
     private void setImgYeuThich() {
         truyen = getData();
         boolean result = db.selectTruyenTrongTuTruyen(mtvTenTruyen.getText().toString());
+
         if (result != true) {
+            // nếu không có bản ghi nào
             imgYeuThich.setImageResource(R.drawable.icon_like_white);
         } else {
+            // nếu có tồn tại bản ghi
             imgYeuThich.setImageResource(R.drawable.liked);
         }
     }

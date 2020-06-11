@@ -48,7 +48,7 @@ public class DanhSachChuongAdapter extends RecyclerView.Adapter<DanhSachChuongAd
                 Intent mIntent = new Intent(mContext, DocTruyenActivity.class);
                 Bundle bundle = new Bundle();
                 Chuong chuong = new Chuong();
-                chuong.setmTenChuong(holder.mtvChuongSo.getText().toString());
+                chuong.setmSTT(position+1);
                 chuong.setmTenTruyen(mChuong.getmTenTruyen()); // lol
 
                 bundle.putSerializable(TAG_NOIDUNG, chuong);
@@ -62,6 +62,11 @@ public class DanhSachChuongAdapter extends RecyclerView.Adapter<DanhSachChuongAd
     @Override
     public int getItemCount() {
         return mChuongList.size();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
