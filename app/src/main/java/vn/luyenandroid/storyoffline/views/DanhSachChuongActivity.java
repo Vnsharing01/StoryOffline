@@ -72,7 +72,7 @@ public class DanhSachChuongActivity extends AppCompatActivity {
     private void setLvDSChuong(){
         Chuong chuong = getData();
 
-//        db.insertDataDSChuong(chuong.getmTenTruyen());
+//        db.insertDataDSChuong(chuong.getmTenTruyen()); // dùng để thêm danh sách chương vào activity
         mChuongList = db.selectIDChuong(chuong.getmTenTruyen()); // nhận tên truyện để select ds chuong.
         adapter = new DanhSachChuongAdapter(this,mChuongList);
 

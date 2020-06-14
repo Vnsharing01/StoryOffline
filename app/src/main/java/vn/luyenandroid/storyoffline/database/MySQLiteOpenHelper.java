@@ -83,12 +83,22 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
     }
 
     public void onCreateTheLoaiTable(SQLiteDatabase db) {
-        String sqlTheLoai = "CREATE TABLE theLoai(matheloai integer primary key autoincrement, tentheloai text)";
+//        String sqlTheLoai = "CREATE TABLE theLoai(matheloai integer primary key autoincrement, tentheloai text)";
+        String sqlTheLoai = "CREATE TABLE " + TABLE_THELOAI + " ( " +
+                MA_TL + " INTEGER PRIMARY KEY AUTOINCREMENT , " +
+                TEN_TL + " TEXT NOT NULL)";
         db.execSQL(sqlTheLoai);
     }
 
     public void onCreateTuTruyenTable(SQLiteDatabase db) {
-        String sqlTuTruyen = "CREATE TABLE truyenYeuThich(id integer primary key autoincrement, ten text, tacgia text, sochuong integer,theloai text, mota text )";
+//        String sqlTuTruyen = "CREATE TABLE truyenYeuThich(id integer primary key autoincrement, ten text, tacgia text, sochuong integer,theloai text, mota text )";
+        String sqlTuTruyen = "CREATE TABLE " + TABLE_TU_TRUYEN + " (" +
+                ID + " INTEGER PRIMARY KEY AUTOINCREMENT , " +
+                TEN_TRUYEN + " TEXT NOT NULL, " +
+                TAC_GIA + " TEXT , " +
+                SO_CHUONG + " INTEGER ," +
+                THE_LOAI + " NOT NULL, " +
+                MO_TA + " TEXT )";
         db.execSQL(sqlTuTruyen);
     }
 

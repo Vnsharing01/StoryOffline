@@ -62,11 +62,14 @@ public class DocTruyenActivity extends AppCompatActivity {
     }
 
     private void setWidget() {
+        Chuong chuong = getIntentDocTruyen();
         imgbtnBack = findViewById(R.id.imgbtn_back);
         mtvTenTruyen = findViewById(R.id.tv_TenTruyen);
         lvNDTruyen = findViewById(R.id.rv_DocTruyen);
 
         imgbtnBack.setOnClickListener(click);
+
+        mtvTenTruyen.setText(chuong.getmTenTruyen());
     }
 
     private void setLvNDTruyen() {
