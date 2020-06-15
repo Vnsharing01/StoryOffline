@@ -110,7 +110,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
                 TEN_CHUONG + " TEXT NOT NULL," +
                 NOI_DUNG + " TEXT NOT NULL)";
         db.execSQL(sqlDSChuong);
-
+    // ok
     }
 
 
